@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Setflow | Automação n8n, Consultoria Jira, Google Workspace e Suporte de TI Remoto</title>
+<meta name="description" content="Automação n8n, consultoria Jira, Google Workspace, Oracle NetSuite, suporte de TI remoto e infraestrutura Windows, Windows Server e Linux para pequenas e médias empresas de todo o Brasil. Atendimento presencial para TI em Mogi Guaçu e região.">
+<meta name="keywords" content="automação n8n, consultoria Jira, Jira Service Management, Google Workspace, suporte de TI remoto, TI em Mogi Guaçu, Oracle NetSuite, automação com IA">
+<meta name="author" content="Carlos Stefan">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Setflow | Automação, Jira, Google Workspace e TI remota">
+<meta property="og:description" content="Automatize processos e tenha TI que funciona, de onde você estiver. Atendimento remoto para todo o Brasil e presencial em Mogi Guaçu e região.">
+<meta name="theme-color" content="#1E3FAE">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%231E3FAE'/%3E%3Cpath d='M41.5 20.5C38.5 17.5 31 17 26.5 20.5C22.5 23.5 24 29 31.5 31.2C39 33.4 41.5 38.5 37 42.5C32.5 46.2 24.5 45.2 21.5 41.8' fill='none' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Crect x='25' y='24' width='17' height='4.6' rx='1.6' fill='%23fff'/%3E%3Crect x='25' y='29.7' width='17' height='4.6' rx='1.6' fill='%23fff'/%3E%3Crect x='25' y='35.4' width='17' height='4.6' rx='1.6' fill='%23fff'/%3E%3Ccircle cx='38.6' cy='26.3' r='1.3' fill='%23E2342D'/%3E%3Ccircle cx='38.6' cy='32' r='1.3' fill='%232EAD4B'/%3E%3Ccircle cx='38.6' cy='37.7' r='1.3' fill='%231F8FE0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Setflow · Carlos Stefan","description":"Automação de processos com n8n, IA aplicada, consultoria Jira, Google Workspace, Oracle NetSuite e suporte de TI remoto para pequenas e médias empresas.","telephone":"+55 19 97803-4464","email":"carlos.stefan86@yahoo.com.br","areaServed":["Brasil","Mogi Guaçu","Mogi Mirim","Itapira","Estiva Gerbi","Santo Antônio de Posse","Campinas"],"founder":{"@type":"Person","name":"Carlos Stefan","jobTitle":"Especialista de Sistemas","sameAs":"https://www.linkedin.com/in/carlosstefan"}}
+</script>
+<style>
+/* Layout: fachada viva em parallax (dia/noite) → rack de serviços remotos → presencial com mapa de região → cabo do processo → contratação → terminal de automação → sobre → faixa de tecnologias → FAQ → contato com jardim */
+:root{
+  --royal:#1E3FAE; --navy:#132A73; --ink:#0E1A3D; --led-r:#E2342D; --led-g:#2EAD4B; --led-b:#1F8FE0; --wa:#1F9D55;
+  --bg:#F5F8FC; --surface:#FFFFFF; --fg:#0E1A3D; --muted:#4F5D80; --line:#D9E1EF; --soft:#E8EEFA;
+  --sky1:#7FC6E3; --sky2:#E3F3F7; --sun:#FFE08A; --stars:0; --moon:0; --cloud:#FFFFFF;
+  --far:#A9C9DA; --far2:#93B6CA; --hill:#5FA36A; --grass:#4E9B4F; --grass2:#3C8441; --leaf:#2F7A3A; --leaf2:#3F9548;
+  --wall:#F7F9FC; --wall2:#E4EAF3; --glass:#1B2338; --win:#2C4C9A; --trunk:#7A5534; --ipe:#F2C230; --ipe2:#E2A812; --walk:#CFD5DD;
+  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gl:max(16px, env(safe-area-inset-left, 0px)); --gr:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#08112B; --surface:#0F1B40; --fg:#EAF0FF; --muted:#A3B1D6; --line:#22336A; --soft:#14245A; --royal:#5B7CF0; --navy:#9DB2FF;
+  --sky1:#050B22; --sky2:#1A2B63; --sun:#F4F1DE; --stars:1; --moon:1; --cloud:#2A3A72;
+  --far:#18275A; --far2:#1F3170; --hill:#173F2E; --grass:#1C4A2A; --grass2:#163D22; --leaf:#174226; --leaf2:#1F5530;
+  --wall:#C9D2E6; --wall2:#A9B5D0; --glass:#0B1022; --win:#FFD27A; --trunk:#4A3524; --ipe:#C99A1F; --ipe2:#A87E14; --walk:#59637C;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#08112B; --surface:#0F1B40; --fg:#EAF0FF; --muted:#A3B1D6; --line:#22336A; --soft:#14245A; --royal:#5B7CF0; --navy:#9DB2FF;
+  --sky1:#050B22; --sky2:#1A2B63; --sun:#F4F1DE; --stars:1; --moon:1; --cloud:#2A3A72;
+  --far:#18275A; --far2:#1F3170; --hill:#173F2E; --grass:#1C4A2A; --grass2:#163D22; --leaf:#174226; --leaf2:#1F5530;
+  --wall:#C9D2E6; --wall2:#A9B5D0; --glass:#0B1022; --win:#FFD27A; --trunk:#4A3524; --ipe:#C99A1F; --ipe2:#A87E14; --walk:#59637C;
+  color-scheme:dark }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.04;text-wrap:balance;margin:0;letter-spacing:-.02em}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font:600 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--royal);display:inline-flex;align-items:center;gap:10px}
+.dots{display:inline-flex;gap:5px;flex:none}.dots i{width:8px;height:8px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:var(--led-r)}.dots i:nth-child(2){background:var(--led-g)}.dots i:nth-child(3){background:var(--led-b)}
+:focus-visible{outline:3px solid var(--led-b);outline-offset:3px;border-radius:6px}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:38px;height:38px;flex:none}
+.brand b{font:800 23px/1 var(--display);color:var(--royal);letter-spacing:-.03em}
+.brand small{display:block;font:600 9.5px/1 var(--mono);letter-spacing:.2em;color:var(--muted);margin-top:4px}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-weight:600;font-size:15px;color:var(--muted)}
+.nav ul a:hover{color:var(--royal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font:700 15px/1 var(--body);padding:14px 20px;border-radius:999px;background:var(--royal);color:#fff;transition:transform .2s, box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--royal)}
+.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.wa{background:var(--wa)}
+.btn.wa:hover{box-shadow:0 10px 24px -10px var(--wa)}
+.btn svg{width:18px;height:18px;flex:none}
+.toggle{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:grid;place-items:center;flex:none}
+.toggle svg{width:20px;height:20px}
+@media (max-width:980px){.nav ul{display:none}.nav .btn{margin-left:auto;padding:12px 16px}}
+@media (max-width:440px){.nav .btn{display:none}.nav .toggle{margin-left:auto}}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 78%);overflow:hidden;isolation:isolate}
+.hero-copy{position:relative;z-index:6;padding-top:44px}
+.hero h1{font-size:clamp(36px,4.8vw,66px);font-weight:800;max-width:18ch;color:var(--ink)}
+:root[data-theme="dark"] .hero h1{color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero h1{color:#fff}}
+.hero h1 em{font-style:normal;color:var(--royal)}
+.hero p.lede{max-width:58ch;font-size:clamp(17px,1.6vw,19px);color:var(--fg);opacity:.88;margin:16px 0 24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .ghost{background:color-mix(in srgb,var(--surface) 55%,transparent)}
+.hero .reach{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font:500 13px/1.4 var(--mono);color:var(--fg);opacity:.8}
+.hero .reach span{display:inline-flex;align-items:center;gap:7px}
+.hero .reach i{width:8px;height:8px;border-radius:50%;background:var(--led-g);display:block}
+.scene{position:relative;height:clamp(340px,44vw,620px);margin-top:clamp(-120px,-6vw,-10px)}
+.layer{position:absolute;inset:0;will-change:transform}
+.layer svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
+.sky-deco{position:absolute;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.stars{opacity:var(--stars);transition:opacity .8s}
+.moonish{opacity:var(--moon)}
+.cloud{animation:drift linear infinite}
+@keyframes drift{from{transform:translateX(-260px)}to{transform:translateX(1700px)}}
+.wave{transform-origin:5px 0;animation:wave 1.6s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(28deg)}}
+.blink{animation:blink 1.4s steps(2) infinite}
+.blink.d2{animation-delay:.35s}.blink.d3{animation-delay:.7s}
+@keyframes blink{50%{opacity:.25}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.8deg)}}
+.bob{animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.w{fill:var(--wall)}.w2{fill:var(--wall2)}.g{fill:var(--glass)}.win{fill:var(--win)}.ry{fill:var(--royal)}
+.status-chip{position:absolute;z-index:7;right:max(16px,4vw);top:300px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font:500 13px/1.35 var(--mono);box-shadow:0 18px 40px -24px #0b1a4a;display:grid;gap:4px;min-width:230px}
+.status-chip b{font-weight:600;color:var(--fg)}
+.status-chip span{color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.status-chip em{font-style:normal}
+.status-chip .ok{color:var(--led-g)}
+@media (max-width:1080px){.status-chip{display:none}}
+
+section.block{padding-block:clamp(64px,9vw,104px)}
+.head{display:grid;gap:14px;max-width:64ch;margin-bottom:40px}
+.head h2{font-size:clamp(30px,4.4vw,54px);font-weight:800}
+.head p{color:var(--muted);margin:0;font-size:18px}
+
+/* SERVIÇOS REMOTOS: rack */
+.rack{background:#141C33;border-radius:20px;padding:18px 28px 26px;box-shadow:inset 0 0 0 6px #232D4D,0 30px 60px -30px #0a1440;position:relative}
+.rack::before,.rack::after{content:"";position:absolute;top:16px;bottom:16px;width:10px;background:repeating-linear-gradient(#39446a 0 3px,transparent 3px 10px)}
+.rack::before{left:8px}.rack::after{right:8px}
+.rack-top{display:flex;justify-content:space-between;gap:12px;color:#8796C4;font:600 11px/1.3 var(--mono);letter-spacing:.12em;padding:4px 2px 14px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:980px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.svc-grid{grid-template-columns:1fr}.rack{padding:16px 22px 22px}}
+.svc-group{grid-column:1/-1;display:flex;align-items:center;gap:12px;font:600 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#C9D5FF;padding:14px 2px 4px}
+.svc-group:first-child{padding-top:0}
+.svc-group::after{content:"";flex:1;height:1px;background:#344072}
+.n8n{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 26px;display:grid;gap:12px}
+.n8n h3{font-size:20px;font-weight:700}
+.n8n p{margin:0;color:var(--muted);font-size:16px}
+.blade{background:linear-gradient(#2A3456,#20294A);border:1px solid #344072;border-radius:10px;padding:18px;color:#DDE5FF;display:grid;grid-template-rows:auto auto 1fr;gap:10px;transition:transform .25s, border-color .25s, background .25s;min-width:0}
+.blade:hover{transform:translateY(-4px);border-color:#7E99FF;background:linear-gradient(#2F4DC4,#2440A8)}
+.blade-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.blade .ico{width:46px;height:46px;border-radius:12px;background:#18214A;border:1px solid #3A4675;display:grid;place-items:center;color:#9DB2FF}
+.blade:hover .ico{color:#fff;border-color:#9DB2FF}
+.blade .ico svg{width:28px;height:28px}
+.blade .u{font:600 11px/1 var(--mono);color:#7E8DBE;display:flex;align-items:center;gap:8px}
+.blade h3{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.15}
+.blade p{margin:0;font-size:15px;line-height:1.5;color:#B9C4E8}
+.leds{display:flex;gap:5px}.leds i{width:7px;height:7px;border-radius:50%;background:var(--led-g);box-shadow:0 0 6px var(--led-g);animation:blink 1.1s steps(2) infinite}
+.leds i:nth-child(2){background:var(--led-b);box-shadow:0 0 6px var(--led-b);animation-duration:.8s}
+.leds i:nth-child(3){background:#FFB020;box-shadow:0 0 6px #FFB020;animation-duration:2.1s}
+.svc-foot{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin-top:26px}
+.svc-foot p{margin:0;color:var(--muted);max-width:60ch}
+
+/* PRESENCIAL */
+.onsite{border-top:1px solid var(--line)}
+.onsite-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:900px){.onsite-grid{grid-template-columns:1fr}}
+.onsite h2{font-size:clamp(28px,3.4vw,42px);font-weight:800}
+.onsite .intro{color:var(--muted);margin:14px 0 22px;max-width:52ch}
+.checks{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.checks li::before{content:"";width:14px;height:14px;margin-top:5px;border-radius:4px;background:var(--soft);box-shadow:inset 0 0 0 2px var(--royal)}
+.pill{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--mono);letter-spacing:.06em;padding:9px 12px;border-radius:999px;background:var(--soft);color:var(--royal)}
+.mapcard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;min-width:0}
+.mapcard svg{width:100%;height:auto;display:block}
+.mapcard .cap{font:500 12px/1.4 var(--mono);color:var(--muted);margin:8px 4px 0}
+.flow{stroke-dasharray:4 8;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+
+/* PROCESSO */
+.process{background:var(--soft);position:relative;overflow:hidden}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;position:relative}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.cable{position:absolute;left:0;right:0;top:34px;height:30px;width:100%;z-index:0}
+@media (max-width:900px){.cable{display:none}}
+.step{position:relative;z-index:1;display:grid;gap:10px;align-content:start}
+.port{width:68px;height:68px;border-radius:18px;background:var(--surface);border:2px solid var(--line);display:grid;place-items:center;font:800 26px/1 var(--display);color:var(--royal);position:relative}
+.port::after{content:"";position:absolute;right:8px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--led-g);box-shadow:0 0 8px var(--led-g)}
+.step h3{font-size:22px;font-weight:700;margin-top:6px}
+.step p{margin:0;color:var(--muted);font-size:16px}
+.step .when{font:600 12px/1 var(--mono);color:var(--royal);letter-spacing:.06em}
+.packet{offset-path:path("M30 15 H1150");animation:packet 5s linear infinite}
+@keyframes packet{from{offset-distance:0%}to{offset-distance:100%}}
+
+/* CONTRATAÇÃO */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;grid-template-rows:auto auto auto 1fr auto;gap:12px;min-width:0}
+.plan .pico{width:52px;height:52px;border-radius:14px;background:var(--soft);display:grid;place-items:center;color:var(--royal)}
+.plan .pico svg{width:28px;height:28px}
+.plan h3{font-size:24px;font-weight:700}
+.plan p{margin:0;color:var(--muted)}
+.plan .fit{font:600 11px/1.2 var(--mono);letter-spacing:.12em;color:var(--royal);text-transform:uppercase;margin-top:4px}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px}
+.plan ul li{padding-left:16px;position:relative}
+.plan ul li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--led-g)}
+.plan .btn{justify-self:start;margin-top:8px}
+
+/* AUTOMAÇÃO / TERMINAL */
+.noc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center}
+@media (max-width:900px){.noc{grid-template-columns:1fr}}
+.term{background:#0B1124;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -36px #061038;border:1px solid #1E2A52;min-width:0}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#141C38;color:#8C9AC7;font:500 12px/1 var(--mono);white-space:nowrap;overflow:hidden}
+.term-bar i{width:11px;height:11px;border-radius:50%;display:block;flex:none}
+.term-bar .t{margin-left:10px;overflow:hidden;text-overflow:ellipsis}
+.term pre{margin:0;padding:20px;font:400 13px/1.75 var(--mono);color:#C9D4F7;min-height:330px;overflow-x:auto;white-space:pre}
+.term .k{color:#7FA2FF}.term .ok{color:#4ED17A}.term .wa{color:#FFB547}.term .dim{color:#5E6C99}
+.caret{display:inline-block;width:8px;height:16px;background:#C9D4F7;vertical-align:-3px;animation:blink 1s steps(2) infinite}
+.facts{display:grid;gap:22px}
+.fact{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start}
+.fact svg{width:56px;height:56px}
+.fact h3{font-size:20px;font-weight:700;margin-bottom:4px}
+.fact p{margin:0;color:var(--muted);font-size:16px}
+.note{font:500 12px/1.4 var(--mono);color:var(--muted);margin-top:10px}
+
+/* SOBRE */
+.about{background:var(--surface);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:48px;align-items:center}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+.avatar{background:linear-gradient(180deg,var(--sky1),var(--sky2));border-radius:28px;aspect-ratio:1/1;max-width:420px;width:100%;position:relative;overflow:hidden}
+.avatar svg{position:absolute;inset:0;width:100%;height:100%}
+.about p{color:var(--muted);max-width:62ch}
+.about p.big{font-size:20px;color:var(--fg)}
+.path{list-style:none;padding:0;margin:26px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative;counter-reset:p}
+.path::before{content:"";position:absolute;left:22px;right:22px;top:22px;height:3px;background:repeating-linear-gradient(90deg,var(--royal) 0 4px,transparent 4px 10px);opacity:.5}
+.path li{position:relative;display:grid;gap:8px;align-content:start}
+.path li .n{width:44px;height:44px;border-radius:12px;background:var(--bg);border:2px solid var(--line);display:grid;place-items:center;font:800 18px/1 var(--display);color:var(--royal);position:relative;z-index:1}
+.path li:last-child .n{background:var(--royal);border-color:var(--royal);color:#fff}
+.path b{font:700 18px/1.2 var(--display)}
+.path span{font-size:15px;color:var(--muted)}
+@media (max-width:620px){.path{grid-template-columns:1fr}.path::before{left:21px;right:auto;top:22px;bottom:22px;width:3px;height:auto;background:repeating-linear-gradient(180deg,var(--royal) 0 4px,transparent 4px 10px)}.path li{grid-template-columns:44px 1fr;column-gap:14px}.path li .n{grid-row:span 2}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:500 13px/1 var(--mono);padding:9px 11px;border-radius:8px;background:var(--soft);color:var(--fg)}
+.xp-title{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--royal);margin:6px 0 14px}
+.xp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:0}
+.xp>div{padding:14px 0;border-top:1px solid var(--line)}
+.xp dt{font:700 17px/1.25 var(--display);color:var(--fg)}
+.xp dd{margin:4px 0 0;font-size:15px;color:var(--muted);line-height:1.5}
+@media (max-width:620px){.xp{grid-template-columns:1fr}}
+.about .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+/* PLACEHOLDERS */
+.ph-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.ph-grid{grid-template-columns:1fr}}
+.ph{border:2px dashed var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;color:var(--muted);background:color-mix(in srgb,var(--surface) 50%,transparent)}
+.ph b{font:600 13px/1 var(--mono);color:var(--led-r);letter-spacing:.08em}
+.ph p{margin:0;font-size:15px}
+
+/* TECNOLOGIAS */
+.stackband{background:var(--royal);color:#fff;overflow:hidden;border-block:4px solid var(--navy);padding-block:48px 34px}
+:root[data-theme="dark"] .stackband{background:#1A2E86;border-color:#0B1A55}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stackband{background:#1A2E86;border-color:#0B1A55}}
+.stackband .eyebrow{color:#C9D5FF}
+.stackband h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;color:#fff;margin:12px 0 24px}
+.marquee{display:flex;width:max-content;animation:marq 48s linear infinite}
+.marquee.rev{animation-direction:reverse;animation-duration:56s}
+.marquee span{font:600 15px/1 var(--mono);padding:14px 22px;white-space:nowrap;display:flex;align-items:center;gap:22px}
+.marquee span::after{content:"";width:7px;height:7px;border-radius:50%;background:#fff;opacity:.5}
+.marquee.rev span{opacity:.75}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:880px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:600 24px/1 var(--mono);color:var(--royal);transition:transform .2s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;color:var(--muted);max-width:70ch}
+
+/* CONTATO */
+.contact{position:relative;background:linear-gradient(180deg,var(--bg) 0%,var(--sky2) 100%);overflow:hidden}
+.cgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:start;position:relative;z-index:2}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr}}
+form{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;min-width:0}
+@media (max-width:560px){form{grid-template-columns:1fr;padding:20px}}
+label{display:grid;gap:6px;font:600 14px/1.2 var(--body)}
+label.full{grid-column:1/-1}
+input,select,textarea{font:400 16px/1.4 var(--body);padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--royal);box-shadow:0 0 0 4px color-mix(in srgb,var(--royal) 20%,transparent)}
+textarea{resize:vertical;min-height:110px}
+.formfoot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between}
+.formfoot small{color:var(--muted);font-size:13px;max-width:36ch}
+.sent{grid-column:1/-1;background:color-mix(in srgb,var(--led-g) 12%,var(--surface));border:1px solid var(--led-g);border-radius:14px;padding:14px 16px;display:grid;gap:12px}
+.sent.err{background:color-mix(in srgb,var(--led-r) 10%,var(--surface));border-color:var(--led-r)}
+.sent p{margin:0;font-weight:600}
+.sent .row{display:flex;flex-wrap:wrap;gap:10px}
+.contact-list{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.contact-list li{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center}
+.contact-list .ic{width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;color:var(--royal)}
+.contact-list .ic svg{width:20px;height:20px}
+.contact-list b{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.contact-list a{font-weight:700;text-decoration-color:color-mix(in srgb,var(--royal) 40%,transparent);text-underline-offset:3px;word-break:break-word}
+.garden{position:relative;height:200px;margin-top:40px;z-index:1}
+.garden svg{position:absolute;inset:auto 0 0 0;width:100%;height:100%}
+
+footer{background:var(--ink);color:#C5CEE9;padding-block:44px 110px}
+:root[data-theme="dark"] footer{background:#040A1E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) footer{background:#040A1E}}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 28px;justify-content:space-between;align-items:center}
+footer .brand b{color:#fff}footer .brand small{color:#8E9BC4}
+footer p{margin:0;font-size:14px}
+footer a.pp{color:#fff;text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px}
+footer a.pp:hover{text-decoration-color:#fff}
+
+/* WHATSAPP FLUTUANTE */
+.wa-float{position:fixed;z-index:70;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font:700 15px/1 var(--body);padding:12px 18px 12px 12px;border-radius:999px;box-shadow:0 16px 32px -14px rgba(8,40,20,.7);transition:transform .2s}
+.wa-float:hover{transform:translateY(-3px)}
+.wa-float .bub{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;position:relative}
+.wa-float .bub::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #fff;animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.8);opacity:0}}
+.wa-float svg{width:20px;height:20px}
+
+
+/* Ajustes de responsividade mobile */
+svg{max-width:100%}
+.hero{overflow-x:clip}
+.hero-copy{padding-top:clamp(28px,5vw,44px)}
+.hero h1{font-size:clamp(30px,7.2vw,66px);max-width:100%}
+.hero .ctas .btn{width:auto}
+@media (max-width:640px){
+  .scene{height:300px;margin-top:8px}
+  .hero .ctas{flex-direction:column;align-items:stretch}
+  .hero .ctas .btn{width:100%}
+  .nav .wrap{gap:10px;height:60px}
+  .brand b{font-size:20px}
+  .onsite-grid,.noc,.about-grid,.cgrid{gap:28px}
+  .mapcard{padding:12px}
+  .term pre{font-size:11.5px;line-height:1.6;padding:14px;min-height:260px}
+  .avatar{max-width:300px;margin:0 auto}
+  .rack{padding:14px 16px 18px}
+  .rack::before,.rack::after{width:6px}
+  .blade{padding:15px}
+  .plan{padding:20px}
+  .wa-float{padding:10px 14px 10px 10px;font-size:14px}
+  footer{padding-bottom:96px}
+}
+@media (max-width:420px){
+  .scene{height:250px}
+  .hero h1{font-size:28px}
+  .head h2{font-size:26px}
+  .fact{grid-template-columns:44px 1fr;gap:12px}
+  .fact svg{width:44px;height:44px}
+  .contact-list li{grid-template-columns:36px 1fr;gap:10px}
+  .contact-list .ic{width:36px;height:36px}
+}
+
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="31" fill="#1E3FAE"/>
+      <circle cx="32" cy="32" r="27.5" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.2"/>
+      <path d="M41.5 20.5C38.5 17.5 31 17 26.5 20.5C22.5 23.5 24 29 31.5 31.2C39 33.4 41.5 38.5 37 42.5C32.5 46.2 24.5 45.2 21.5 41.8" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round"/>
+      <rect x="25" y="24" width="17" height="4.6" rx="1.6" fill="#fff"/>
+      <rect x="25" y="29.7" width="17" height="4.6" rx="1.6" fill="#fff"/>
+      <rect x="25" y="35.4" width="17" height="4.6" rx="1.6" fill="#fff"/>
+      <circle cx="38.6" cy="26.3" r="1.3" fill="#E2342D"/><circle cx="38.6" cy="32" r="1.3" fill="#2EAD4B"/><circle cx="38.6" cy="37.7" r="1.3" fill="#1F8FE0"/>
+    </symbol>
+    <symbol id="chat" viewBox="0 0 24 24">
+      <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M8.5 9.5c.3 2.6 2.4 4.9 5.2 5.6l1.2-1.4 2 .9c-.2 1.3-1.3 2-2.5 1.9-3.9-.4-7-3.5-7.3-7.3 0-1.2.7-2.3 1.9-2.5l.9 2-1.4 1.1" fill="currentColor"/>
+    </symbol>
+    <symbol id="frond" viewBox="0 0 160 40" overflow="visible">
+      <path d="M0 20 Q70 -12 158 22 Q70 6 0 20Z" fill="var(--leaf2)"/>
+      <path d="M0 20 Q70 2 158 22" fill="none" stroke="var(--leaf)" stroke-width="2"/>
+      <path d="M30 14 l10 -10 M55 10 l10 -11 M80 9 l10 -10 M105 11 l10 -9 M30 22 l10 10 M55 22 l10 11 M80 22 l10 10 M105 22 l10 9" stroke="var(--leaf2)" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 200 80" overflow="visible">
+      <g fill="var(--cloud)"><circle cx="50" cy="50" r="28"/><circle cx="90" cy="36" r="36"/><circle cx="138" cy="48" r="28"/><rect x="40" y="48" width="110" height="30" rx="15"/></g>
+    </symbol>
+    <symbol id="brom" viewBox="0 0 120 100" overflow="visible">
+      <g fill="var(--leaf2)"><path d="M60 100 Q20 60 0 40 Q40 55 60 100Z"/><path d="M60 100 Q100 60 120 40 Q80 55 60 100Z"/><path d="M60 100 Q35 40 30 0 Q55 45 60 100Z"/><path d="M60 100 Q85 40 90 0 Q65 45 60 100Z"/></g>
+      <path d="M60 100 Q60 40 60 18" stroke="var(--leaf)" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M52 30 Q60 8 68 30Z" fill="#E2342D"/>
+    </symbol>
+    <symbol id="monstera" viewBox="0 0 120 120" overflow="visible">
+      <path d="M60 120 Q58 80 60 60" stroke="var(--leaf)" stroke-width="5" fill="none"/>
+      <path d="M60 64 C10 64 0 20 30 6 C45 0 55 8 60 14 C65 8 75 0 90 6 C120 20 110 64 60 64Z" fill="var(--leaf)"/>
+      <path d="M60 64 L60 14 M60 40 L22 22 M60 40 L98 22 M60 52 L18 46 M60 52 L102 46" stroke="var(--bg)" stroke-width="3" opacity=".6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Setflow, início">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span><b>setflow</b></span>
+    </a>
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#presencial">Presencial</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#sobre">Quem somos</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn" href="#contato">Solicite um orçamento</a>
+    <button class="toggle" id="themeBtn" type="button" aria-label="Alternar dia e noite">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- 1. HERO -->
+<section class="hero" aria-label="Apresentação">
+  <svg class="sky-deco" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+    <g class="stars" fill="#fff">
+      <circle cx="120" cy="80" r="1.6"/><circle cx="260" cy="160" r="1.2"/><circle cx="410" cy="60" r="1.8"/><circle cx="560" cy="200" r="1.1"/><circle cx="700" cy="110" r="1.5"/><circle cx="860" cy="40" r="1.2"/><circle cx="980" cy="180" r="1.7"/><circle cx="1120" cy="90" r="1.3"/><circle cx="1260" cy="220" r="1.4"/><circle cx="1380" cy="70" r="1.6"/><circle cx="330" cy="290" r="1"/><circle cx="1010" cy="300" r="1.1"/><circle cx="640" cy="320" r="1.2"/>
+    </g>
+    <g data-speed="0.35" class="plx">
+      <circle cx="1180" cy="210" r="120" fill="var(--sun)" opacity=".25"/>
+      <circle cx="1180" cy="210" r="62" fill="var(--sun)"/>
+      <g class="moonish"><circle cx="1158" cy="192" r="12" fill="#D9D4BC"/><circle cx="1200" cy="230" r="8" fill="#D9D4BC"/><circle cx="1196" cy="186" r="6" fill="#D9D4BC"/></g>
+    </g>
+  </svg>
+  <svg class="sky-deco" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true" style="z-index:1">
+    <use href="#cloud" class="cloud" x="0" y="120" width="200" height="80" style="animation-duration:70s"/>
+    <use href="#cloud" class="cloud" x="0" y="260" width="140" height="56" style="animation-duration:95s;animation-delay:-40s;opacity:.8"/>
+    <use href="#cloud" class="cloud" x="0" y="60" width="260" height="104" style="animation-duration:120s;animation-delay:-80s;opacity:.9"/>
+  </svg>
+
+  <div class="wrap hero-copy">
+    <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Serviços de TI remotos para empresas de todo o Brasil</span>
+    <h1 style="margin-top:16px">Automatize processos e tenha TI que funciona, <em>de onde você estiver.</em></h1>
+    <p class="lede">Automação com n8n e IA, Jira, Google Workspace, Oracle NetSuite, suporte de TI e segurança para pequenas e médias empresas. Menos trabalho repetitivo para a equipe e sistemas, acessos e infraestrutura em ordem, sem ninguém precisar ir até você.</p>
+    <div class="ctas">
+      <a class="btn wa" href="https://wa.me/5519978034464?text=Ol%C3%A1%2C%20Carlos!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#chat"/></svg> Conversar no WhatsApp</a>
+      <a class="btn ghost" href="#servicos">Ver serviços</a>
+    </div>
+    <div class="reach"><span><i></i>Atendimento remoto em todo o Brasil</span><span><i style="background:var(--led-b)"></i>Conversa inicial gratuita</span></div>
+  </div>
+
+  <div class="status-chip" role="img" aria-label="Exemplo ilustrativo de uma automação em funcionamento">
+    <b>fluxo: pedido do site → ERP</b>
+    <span>status <em class="ok">● ativo</em></span>
+    <span>última execução <em>há 2 min</em></span>
+    <span>etapas manuais <em class="ok">nenhuma</em></span>
+  </div>
+
+  <div class="scene" aria-hidden="true">
+    <div class="layer plx" data-speed="0.45">
+      <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice">
+        <g fill="var(--far)">
+          <rect x="0" y="330" width="70" height="290"/><rect x="80" y="280" width="54" height="340"/><rect x="140" y="360" width="80" height="260"/>
+          <rect x="230" y="300" width="46" height="320"/><rect x="250" y="260" width="4" height="40"/><rect x="1150" y="300" width="64" height="320"/>
+          <rect x="1220" y="250" width="50" height="370"/><rect x="1242" y="210" width="4" height="40"/><rect x="1280" y="340" width="90" height="280"/><rect x="1380" y="290" width="60" height="330"/>
+          <rect x="300" y="350" width="70" height="270"/><rect x="1090" y="360" width="56" height="260"/>
+        </g>
+        <g fill="var(--far2)">
+          <rect x="40" y="400" width="90" height="220"/><rect x="180" y="420" width="70" height="200"/><rect x="1200" y="410" width="80" height="210"/><rect x="1330" y="390" width="70" height="230"/>
+        </g>
+        <g fill="var(--win)" opacity=".5">
+          <rect x="92" y="300" width="6" height="8"/><rect x="108" y="330" width="6" height="8"/><rect x="92" y="360" width="6" height="8"/><rect x="1232" y="280" width="6" height="8"/><rect x="1250" y="320" width="6" height="8"/><rect x="1300" y="370" width="6" height="8"/><rect x="160" y="390" width="6" height="8"/>
+        </g>
+      </svg>
+    </div>
+    <div class="layer plx" data-speed="0.28">
+      <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice">
+        <path d="M0 470 Q180 420 360 460 T720 455 T1080 450 T1440 440 V620 H0Z" fill="var(--hill)"/>
+        <g fill="var(--leaf)">
+          <circle cx="60" cy="452" r="34"/><circle cx="100" cy="440" r="28"/><circle cx="190" cy="448" r="30"/>
+          <circle cx="1260" cy="440" r="30"/><circle cx="1310" cy="430" r="36"/><circle cx="1390" cy="440" r="30"/>
+        </g>
+      </svg>
+    </div>
+    <div class="layer plx" data-speed="0.12">
+      <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice">
+        <ellipse cx="800" cy="560" rx="420" ry="16" fill="#000" opacity=".12"/>
+        <rect class="w" x="470" y="210" width="180" height="350"/>
+        <rect class="ry" x="452" y="190" width="206" height="22" rx="3"/>
+        <rect class="w2" x="470" y="212" width="180" height="6"/>
+        <g><rect class="g" x="494" y="240" width="132" height="66" rx="2"/>
+          <rect class="win" x="498" y="244" width="40" height="58" opacity=".85"/><rect class="win" x="542" y="244" width="40" height="58" opacity=".7"/><rect class="win" x="586" y="244" width="36" height="58" opacity=".85"/>
+        </g>
+        <g fill="none" stroke="var(--wall2)" stroke-width="2"><path d="M484 330 H640 M484 340 H640 M484 350 H640 M484 360 H640 M484 370 H640 M484 380 H640"/></g>
+        <rect class="g" x="490" y="420" width="140" height="60" rx="2"/>
+        <rect class="win" x="494" y="430" width="132" height="46" opacity=".55"/>
+        <path d="M486 420 H634 L622 444 H498Z" fill="var(--navy)"/>
+        <rect class="w" x="650" y="330" width="390" height="230"/>
+        <rect class="g" x="680" y="392" width="320" height="130" rx="3"/>
+        <rect class="win" x="690" y="402" width="300" height="110" opacity=".35"/>
+        <path d="M700 402 L760 402 L700 470Z" fill="#fff" opacity=".08"/>
+        <rect class="w2" x="672" y="522" width="336" height="8"/>
+        <path d="M676 530 q8 -10 16 0 q8 -12 16 0 q8 -9 16 0 q8 -12 16 0 q8 -10 16 0 q8 -12 16 0 q8 -9 16 0 q8 -11 16 0 q8 -10 16 0 q8 -12 16 0 q8 -9 16 0 q8 -11 16 0 q8 -10 16 0 q8 -12 16 0 q8 -9 16 0 q8 -11 16 0 q8 -10 16 0 q8 -12 16 0 q8 -9 16 0 q8 -11 16 0 v8 h-320Z" fill="var(--grass)"/>
+        <rect class="ry" x="628" y="146" width="380" height="24" rx="3"/>
+        <rect class="w" x="646" y="168" width="344" height="164"/>
+        <rect class="w2" x="646" y="326" width="344" height="8"/>
+        <use href="#mark" x="672" y="196" width="88" height="88"/>
+        <text x="770" y="262" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="72" fill="var(--royal)" letter-spacing="-3">setflow</text>
+        <text x="774" y="292" font-family="JetBrains Mono, monospace" font-weight="600" font-size="13.5" fill="var(--royal)" letter-spacing="4.2">SOLUÇÕES EM TI</text>
+        <circle cx="782" cy="310" r="5" fill="#E2342D"/><circle cx="798" cy="310" r="5" fill="#2EAD4B"/><circle cx="814" cy="310" r="5" fill="#1F8FE0"/>
+        <g transform="translate(960 190)"><rect x="0" y="0" width="6" height="16" fill="#9aa6bd"/><rect x="-26" y="10" width="34" height="14" rx="5" fill="#E8ECF3" stroke="#9aa6bd"/><circle cx="-22" cy="17" r="3" fill="#1B2338"/><circle class="blink" cx="2" cy="14" r="2" fill="#E2342D"/></g>
+        <rect x="1000" y="236" width="44" height="34" rx="3" fill="#E1E6EF" stroke="#B8C1D1"/><g stroke="#B8C1D1"><path d="M1006 244 H1038 M1006 250 H1038 M1006 256 H1038 M1006 262 H1038"/></g>
+        <rect class="w" x="1040" y="230" width="18" height="330"/>
+        <rect class="ry" x="1010" y="300" width="160" height="40" rx="2"/>
+        <rect class="w" x="1058" y="340" width="100" height="220"/>
+        <rect class="g" x="1072" y="370" width="74" height="190"/>
+        <rect class="win" x="1076" y="374" width="66" height="186" opacity=".45"/>
+        <use href="#mark" x="1092" y="420" width="30" height="30" opacity=".7"/>
+        <text x="1004" y="410" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="26" fill="var(--ink)">100</text>
+        <g transform="translate(560 182)"><rect x="-2" y="-30" width="4" height="30" fill="#9aa6bd"/><circle cx="0" cy="-32" r="5" fill="#1F8FE0"/><circle class="pulse" cx="0" cy="-32" r="10" fill="none" stroke="#1F8FE0" stroke-width="2"/></g>
+      </svg>
+    </div>
+    <div class="layer plx" data-speed="0">
+      <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice">
+        <path d="M0 556 H1440 V620 H0Z" fill="var(--walk)"/>
+        <g stroke="#000" stroke-opacity=".08" stroke-width="2"><path d="M80 556 L60 620 M240 556 L230 620 M400 556 L400 620 M560 556 L570 620 M720 556 L740 620 M880 556 L910 620 M1040 556 L1080 620 M1200 556 L1250 620 M1360 556 L1420 620"/></g>
+        <path d="M0 590 Q120 576 240 588 T480 590 T720 586 T960 592 T1200 584 T1440 588 V620 H0Z" fill="var(--grass)"/>
+        <g class="sway">
+          <path d="M330 600 C340 520 352 420 372 300" stroke="var(--trunk)" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <path d="M337 560 h16 M341 520 h16 M346 480 h16 M351 440 h16 M357 400 h16 M363 360 h16 M368 325 h14" stroke="#000" stroke-opacity=".18" stroke-width="3"/>
+          <g transform="translate(372 300)">
+            <use href="#frond" width="160" height="40" transform="rotate(-20) translate(0 -20)"/>
+            <use href="#frond" width="160" height="40" transform="rotate(20) translate(0 -20)"/>
+            <use href="#frond" width="160" height="40" transform="rotate(200) translate(0 -20)"/>
+            <use href="#frond" width="160" height="40" transform="rotate(160) translate(0 -20)"/>
+            <use href="#frond" width="140" height="35" transform="rotate(-70) translate(0 -18)"/>
+            <use href="#frond" width="140" height="35" transform="rotate(250) translate(0 -18)"/>
+            <use href="#frond" width="150" height="38" transform="rotate(55) translate(0 -19)"/>
+            <use href="#frond" width="150" height="38" transform="rotate(125) translate(0 -19)"/>
+            <circle cx="0" cy="8" r="8" fill="#E39B2B"/><circle cx="10" cy="12" r="6" fill="#E39B2B"/>
+          </g>
+        </g>
+        <path d="M0 240 Q240 270 470 228" stroke="#3A4462" stroke-width="2" fill="none"/>
+        <g class="bob" transform="translate(205 246)">
+          <ellipse cx="0" cy="0" rx="16" ry="12" fill="#F4CF2E"/>
+          <path d="M-6 -6 Q-20 -8 -30 4 Q-18 0 -8 4Z" fill="#6B4A2B"/>
+          <circle cx="12" cy="-12" r="10" fill="#2A2420"/>
+          <path d="M4 -14 H22" stroke="#fff" stroke-width="3"/>
+          <circle cx="15" cy="-10" r="1.8" fill="#fff"/>
+          <path d="M21 -10 L30 -8 L21 -6Z" fill="#2A2420"/>
+          <path d="M-3 11 v8 M3 11 v8" stroke="#2A2420" stroke-width="2"/>
+        </g>
+        <g class="sway" style="animation-duration:6.5s">
+          <path d="M1290 600 C1286 540 1280 480 1290 420 M1288 470 C1260 450 1240 430 1230 400 M1290 440 C1320 420 1340 400 1352 372" stroke="var(--trunk)" stroke-width="14" fill="none" stroke-linecap="round"/>
+          <g fill="var(--ipe)"><circle cx="1230" cy="380" r="42"/><circle cx="1290" cy="350" r="56"/><circle cx="1352" cy="362" r="44"/><circle cx="1262" cy="408" r="30"/><circle cx="1330" cy="404" r="30"/></g>
+          <g fill="var(--ipe2)"><circle cx="1250" cy="370" r="14"/><circle cx="1300" cy="330" r="18"/><circle cx="1340" cy="380" r="14"/><circle cx="1280" cy="392" r="10"/><circle cx="1214" cy="396" r="10"/></g>
+        </g>
+        <g fill="var(--ipe)"><circle cx="1240" cy="596" r="4"/><circle cx="1262" cy="602" r="3"/><circle cx="1320" cy="598" r="4"/><circle cx="1352" cy="604" r="3"/><circle cx="1210" cy="606" r="3"/></g>
+        <g fill="var(--leaf2)"><circle cx="470" cy="572" r="26"/><circle cx="500" cy="566" r="32"/><circle cx="534" cy="574" r="24"/><circle cx="1000" cy="574" r="24"/><circle cx="1026" cy="568" r="28"/></g>
+        <g fill="var(--leaf)"><circle cx="486" cy="580" r="18"/><circle cx="1012" cy="582" r="16"/></g>
+        <g fill="#E2342D"><circle cx="490" cy="556" r="4"/><circle cx="516" cy="550" r="4"/><circle cx="1030" cy="552" r="4"/></g>
+
+        <g transform="translate(830 470)">
+          <ellipse cx="0" cy="118" rx="34" ry="6" fill="#000" opacity=".15"/>
+          <rect x="-15" y="62" width="12" height="54" rx="5" fill="#1B2550"/><rect x="3" y="62" width="12" height="54" rx="5" fill="#1B2550"/>
+          <rect x="-18" y="112" width="16" height="7" rx="3" fill="#222"/><rect x="2" y="112" width="16" height="7" rx="3" fill="#222"/>
+          <rect x="-22" y="14" width="44" height="54" rx="14" fill="#1E3FAE"/>
+          <path d="M-6 14 L0 24 L6 14" fill="#fff"/>
+          <use href="#mark" x="6" y="28" width="10" height="10"/>
+          <g transform="translate(17 22)"><g class="wave"><rect x="0" y="-34" width="11" height="36" rx="5.5" fill="#1E3FAE"/><circle cx="5.5" cy="-36" r="6.5" fill="#F3C6A5"/></g></g>
+          <rect x="-34" y="22" width="12" height="30" rx="6" fill="#1E3FAE" transform="rotate(-25 -28 22)"/>
+          <g transform="translate(-44 44) rotate(-8)"><rect x="0" y="0" width="34" height="22" rx="2" fill="#C8D0DE"/><rect x="2" y="2" width="30" height="16" fill="#1B2338"/><path d="M5 8 h12 M5 12 h18" stroke="#4ED17A" stroke-width="2"/><rect x="-2" y="20" width="38" height="4" rx="2" fill="#9AA6BD"/></g>
+          <circle cx="0" cy="-6" r="19" fill="#F3C6A5"/>
+          <path d="M-19 -8 Q-18 -30 2 -28 Q20 -28 19 -10 Q10 -20 -19 -8Z" fill="#2B1A12"/>
+          <circle cx="-6" cy="-4" r="2" fill="#1B1B1B"/><circle cx="7" cy="-4" r="2" fill="#1B1B1B"/>
+          <path d="M-5 4 Q1 9 7 4" stroke="#1B1B1B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <g transform="translate(1170 470)">
+          <ellipse cx="0" cy="118" rx="38" ry="6" fill="#000" opacity=".15"/>
+          <rect x="-15" y="62" width="12" height="54" rx="5" fill="#3A3F52"/><rect x="3" y="62" width="12" height="54" rx="5" fill="#3A3F52"/>
+          <rect x="-18" y="112" width="16" height="7" rx="3" fill="#fff"/><rect x="2" y="112" width="16" height="7" rx="3" fill="#fff"/>
+          <rect x="-22" y="14" width="44" height="54" rx="14" fill="#2EAD4B"/>
+          <rect x="-50" y="30" width="100" height="26" rx="3" fill="#2A3456"/>
+          <rect x="-46" y="34" width="92" height="7" rx="1" fill="#3A4675"/><rect x="-46" y="44" width="92" height="7" rx="1" fill="#3A4675"/>
+          <circle class="blink" cx="34" cy="37.5" r="2.2" fill="#4ED17A"/><circle class="blink d2" cx="40" cy="37.5" r="2.2" fill="#1F8FE0"/><circle class="blink d3" cx="34" cy="47.5" r="2.2" fill="#FFB547"/>
+          <rect x="-34" y="26" width="12" height="20" rx="6" fill="#2EAD4B"/><rect x="22" y="26" width="12" height="20" rx="6" fill="#2EAD4B"/>
+          <circle cx="-28" cy="46" r="6" fill="#7A4B2E"/><circle cx="28" cy="46" r="6" fill="#7A4B2E"/>
+          <circle cx="0" cy="-6" r="19" fill="#7A4B2E"/>
+          <path d="M-20 -6 Q-22 -32 0 -30 Q22 -32 20 -6 Q18 -20 0 -22 Q-18 -20 -20 -6Z" fill="#1A120D"/>
+          <circle cx="-14" cy="-26" r="9" fill="#1A120D"/><circle cx="0" cy="-30" r="10" fill="#1A120D"/><circle cx="14" cy="-26" r="9" fill="#1A120D"/>
+          <path d="M-21 -6 Q-22 -26 0 -27 Q22 -26 21 -6" stroke="#1E3FAE" stroke-width="3" fill="none"/>
+          <rect x="-25" y="-10" width="7" height="12" rx="3" fill="#1E3FAE"/><path d="M-20 2 Q-16 10 -6 8" stroke="#1E3FAE" stroke-width="2" fill="none"/>
+          <circle cx="-6" cy="-4" r="2" fill="#1B1B1B"/><circle cx="7" cy="-4" r="2" fill="#1B1B1B"/>
+          <path d="M-4 5 Q2 8 7 5" stroke="#1B1B1B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <use href="#brom" x="-20" y="500" width="140" height="120"/>
+        <use href="#monstera" x="80" y="520" width="110" height="110"/>
+        <use href="#brom" x="1360" y="510" width="120" height="110"/>
+        <use href="#monstera" x="600" y="540" width="80" height="80"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SERVIÇOS REMOTOS -->
+<section class="block" id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Serviços remotos</span>
+      <h2>O que resolvemos à distância, para empresas de todo o Brasil.</h2>
+      <p>Menos tempo perdido com tarefas manuais, sistemas que conversam entre si e uma TI que não para a operação. Tudo feito por acesso remoto seguro, sem precisar de ninguém no local.</p>
+    </div>
+    <div class="rack">
+      <div class="rack-top"><span>SERVIÇOS REMOTOS · 15U</span><span>SETFLOW</span></div>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+    <div class="svc-foot">
+      <p>Não sabe por onde começar? A consultoria de diagnóstico mostra o que vale atacar primeiro.</p>
+      <a class="btn" href="#contato">Solicite um orçamento
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRESENCIAL -->
+<section class="block onsite" id="presencial">
+  <div class="wrap onsite-grid">
+    <div>
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Atendimento presencial</span>
+      <h2 style="margin-top:14px">Precisa de alguém no local?</h2>
+      <p class="intro">Para o que não dá para fazer à distância, atendo presencialmente em Mogi Guaçu e região, sempre com agendamento prévio.</p>
+      <ul class="checks">
+        <li>Implantação de redes, cabeamento estruturado e Wi-Fi corporativo</li>
+        <li>Instalação de firewall, roteadores e switches</li>
+        <li>Instalação e manutenção de servidores e computadores</li>
+        <li>Inventário e organização de ativos de TI</li>
+        <li>Treinamento presencial de equipes em IA, Jira e Google Workspace</li>
+      </ul>
+      <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> MEDIANTE AGENDAMENTO PRÉVIO</span>
+    </div>
+    <figure class="mapcard" style="margin:0">
+      <svg viewBox="-10 0 445 300" role="img" aria-labelledby="mapTitle">
+        <title id="mapTitle">Cidades atendidas presencialmente: Mogi Guaçu, Mogi Mirim, Itapira, Estiva Gerbi, Santo Antônio de Posse e Campinas</title>
+        <rect x="0" y="0" width="420" height="300" rx="14" fill="var(--soft)"/>
+        <g stroke="var(--line)" stroke-width="1"><path d="M0 60H420M0 120H420M0 180H420M0 240H420M70 0V300M140 0V300M210 0V300M280 0V300M350 0V300"/></g>
+        <g stroke="var(--royal)" stroke-width="2.5" fill="none" stroke-linecap="round" class="flow">
+          <path d="M230 130 L222 58"/><path d="M230 130 L350 112"/><path d="M230 130 L120 176"/><path d="M230 130 L236 214"/><path d="M230 130 Q200 220 160 262"/>
+        </g>
+        <g fill="var(--surface)" stroke="var(--royal)" stroke-width="3">
+          <circle cx="222" cy="58" r="8"/><circle cx="350" cy="112" r="8"/><circle cx="120" cy="176" r="8"/><circle cx="236" cy="214" r="8"/><circle cx="160" cy="262" r="8"/>
+        </g>
+        <circle class="pulse" cx="230" cy="130" r="14" fill="none" stroke="var(--led-g)" stroke-width="2"/>
+        <circle cx="230" cy="130" r="14" fill="var(--royal)"/>
+        <circle cx="230" cy="130" r="5" fill="#fff"/>
+        <g font-family="Figtree, system-ui, sans-serif" font-size="13" font-weight="600" fill="var(--fg)">
+          <text x="222" y="38" text-anchor="middle">Estiva Gerbi</text>
+          <text x="350" y="138" text-anchor="middle">Itapira</text>
+          <text x="120" y="202" text-anchor="middle">Mogi Mirim</text>
+          <text x="250" y="219">Sto. Antônio de Posse</text>
+          <text x="174" y="267">Campinas</text>
+          <text x="212" y="122" font-size="15" font-weight="700" text-anchor="end">Mogi Guaçu</text>
+          
+        </g>
+      </svg>
+      <figcaption class="cap">Esquema da região atendida, fora de escala.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4. COMO FUNCIONA -->
+<section class="block process" id="como-funciona">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Como funciona</span>
+      <h2>Da primeira conversa ao processo rodando sozinho.</h2>
+      <p>Quatro etapas, nesta ordem. Você sabe o escopo, o prazo e o formato de contratação antes de qualquer trabalho começar.</p>
+    </div>
+    <div class="steps">
+      <svg class="cable" viewBox="0 0 1180 30" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M30 15 H1150" stroke="var(--royal)" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" fill="none" opacity=".5"/>
+        <circle r="6" fill="var(--led-g)" class="packet"/>
+      </svg>
+      <div class="step"><div class="port">1</div><span class="when">SEM CUSTO</span><h3>Conversa inicial gratuita</h3><p>Você conta o problema ou o processo que quer melhorar. Sem compromisso.</p></div>
+      <div class="step"><div class="port">2</div><span class="when">POR ESCRITO</span><h3>Diagnóstico e proposta</h3><p>Analiso o ambiente e envio escopo, prazo e formato de contratação.</p></div>
+      <div class="step"><div class="port">3</div><span class="when">POR ETAPAS</span><h3>Execução</h3><p>Implantação com testes e documentação de tudo o que foi configurado.</p></div>
+      <div class="step"><div class="port">4</div><span class="when">CONTÍNUO</span><h3>Acompanhamento</h3><p>Ajustes, suporte e melhorias depois da entrega, para o resultado se manter.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAS DE CONTRATAÇÃO -->
+<section class="block" id="contratacao">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Formas de contratação</span>
+      <h2>Você escolhe o formato que cabe na sua operação.</h2>
+      <p>Os valores dependem do escopo de cada empresa. Depois da conversa inicial, envio um orçamento por escrito.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <h3>Projeto fechado</h3>
+        <p>Escopo, entregas e prazo definidos antes de começar.</p>
+        <div><div class="fit">Indicado para</div>
+        <ul><li>Uma automação ou integração específica</li><li>Implantação do Jira ou do Google Workspace</li><li>Migração de e-mails</li></ul></div>
+        <a class="btn ghost" href="#contato">Solicite um orçamento</a>
+      </article>
+      <article class="plan">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15h3"/></svg></span>
+        <h3>Suporte mensal</h3>
+        <p>Pacote de horas por mês para suporte, ajustes e melhorias contínuas.</p>
+        <div><div class="fit">Indicado para</div>
+        <ul><li>Empresas sem equipe de TI interna</li><li>Administração de Workspace, Jira ou NetSuite</li><li>Manutenção das automações em uso</li></ul></div>
+        <a class="btn ghost" href="#contato">Solicite um orçamento</a>
+      </article>
+      <article class="plan">
+        <span class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span>
+        <h3>Consultoria avulsa</h3>
+        <p>Horas de consultoria quando você precisa de uma opinião técnica ou de uma correção pontual.</p>
+        <div><div class="fit">Indicado para</div>
+        <ul><li>Diagnóstico do ambiente de TI</li><li>Revisão de um processo ou ferramenta</li><li>Treinamento rápido da equipe</li></ul></div>
+        <a class="btn ghost" href="#contato">Solicite um orçamento</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOMAÇÃO EM AÇÃO -->
+<section class="block process" id="automacao">
+  <div class="wrap noc">
+    <div>
+      <div class="term" role="img" aria-label="Exemplo ilustrativo da execução de um fluxo de automação">
+        <div class="term-bar"><i style="background:#E2342D"></i><i style="background:#FFB547"></i><i style="background:#2EAD4B"></i><span class="t">n8n · fluxo pedido-do-site-para-erp</span></div>
+        <pre id="term"></pre>
+      </div>
+      <p class="note">Exemplo ilustrativo de um fluxo de automação; nomes e valores fictícios.</p>
+    </div>
+    <div>
+      <div class="head" style="margin-bottom:28px">
+        <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Automação na prática</span>
+        <h2>O trabalho repetitivo passa a rodar sozinho.</h2>
+      </div>
+      <div class="n8n">
+        <h3>Atendemos qualquer demanda em n8n</h3>
+        <p>Do primeiro fluxo à integração mais complexa, e também ajustes em automações que já existem na sua empresa.</p>
+        <div class="chips"><span>Fluxos novos</span><span>Integrações via API e webhooks</span><span>Agentes com IA</span><span>Correção de fluxos com erro</span><span>Migração de outras ferramentas</span><span>Instalação e hospedagem do n8n</span><span>Manutenção contínua</span></div>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="4" y="10" width="48" height="36" rx="8" fill="var(--surface)"/><rect x="10" y="18" width="12" height="20" rx="3" fill="var(--soft)" stroke="var(--royal)" stroke-width="2"/><rect x="34" y="18" width="12" height="20" rx="3" fill="var(--soft)" stroke="var(--royal)" stroke-width="2"/><path d="M22 28h12" stroke="var(--led-g)" stroke-width="3" stroke-linecap="round"/></svg>
+          <div><h3>Dados digitados uma vez só</h3><p>O que entra no formulário, no CRM ou no e-mail chega sozinho à planilha, ao ERP e ao Jira.</p></div>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="8" y="8" width="40" height="40" rx="10" fill="var(--surface)"/><path d="M18 20h20M18 28h14M18 36h18" stroke="var(--royal)" stroke-width="3" stroke-linecap="round"/><circle cx="42" cy="40" r="8" fill="var(--led-g)"/><path d="M38.5 40l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" fill="none"/></svg>
+          <div><h3>Menos erro de cópia</h3><p>Sem copiar e colar entre sistemas, somem os pedidos duplicados e os campos esquecidos.</p></div>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="4" y="10" width="48" height="36" rx="8" fill="var(--surface)"/><path d="M28 16l3.5 8.5L40 28l-8.5 3.5L28 40l-3.5-8.5L16 28l8.5-3.5Z" fill="var(--royal)"/><circle cx="42" cy="16" r="5" fill="var(--led-r)"/></svg>
+          <div><h3>IA fazendo a triagem</h3><p>E-mails e documentos chegam resumidos e classificados, e a equipe é avisada só do que precisa de atenção.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SOBRE MIM -->
+<section class="block about" id="sobre">
+  <div class="wrap about-grid">
+    <div class="avatar" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <circle cx="300" cy="90" r="40" fill="var(--sun)"/>
+        <use href="#cloud" x="40" y="60" width="140" height="56"/>
+        <path d="M0 320 Q100 290 200 312 T400 300 V400 H0Z" fill="var(--hill)"/>
+        <use href="#monstera" x="300" y="250" width="110" height="110"/>
+        <use href="#brom" x="-10" y="280" width="110" height="100"/>
+        <g transform="translate(200 250) scale(2.4)">
+          <rect x="-15" y="62" width="12" height="54" rx="5" fill="#1B2550"/><rect x="3" y="62" width="12" height="54" rx="5" fill="#1B2550"/>
+          <rect x="-22" y="14" width="44" height="54" rx="14" fill="#1E3FAE"/>
+          <path d="M-6 14 L0 24 L6 14" fill="#fff"/>
+          <use href="#mark" x="6" y="28" width="10" height="10"/>
+          <rect x="-34" y="22" width="12" height="30" rx="6" fill="#1E3FAE" transform="rotate(-25 -28 22)"/>
+          <g transform="translate(17 22)"><g class="wave"><rect x="0" y="-34" width="11" height="36" rx="5.5" fill="#1E3FAE"/><circle cx="5.5" cy="-36" r="6.5" fill="#F3C6A5"/></g></g>
+          <g transform="translate(-44 44) rotate(-8)"><rect x="0" y="0" width="34" height="22" rx="2" fill="#C8D0DE"/><rect x="2" y="2" width="30" height="16" fill="#1B2338"/><path d="M5 8 h12 M5 12 h18" stroke="#4ED17A" stroke-width="2"/><rect x="-2" y="20" width="38" height="4" rx="2" fill="#9AA6BD"/></g>
+          <circle cx="0" cy="-6" r="19" fill="#F3C6A5"/>
+          <path d="M-19 -8 Q-18 -30 2 -28 Q20 -28 19 -10 Q10 -20 -19 -8Z" fill="#2B1A12"/>
+          <circle cx="-6" cy="-4" r="2" fill="#1B1B1B"/><circle cx="7" cy="-4" r="2" fill="#1B1B1B"/>
+          <path d="M-5 4 Q1 9 7 4" stroke="#1B1B1B" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Quem somos</span>
+      <h2 style="font-size:clamp(30px,4vw,50px);font-weight:800;margin:14px 0 18px">Mais de 12 anos resolvendo TI, do suporte à gestão de sistemas.</h2>
+      <p class="big">À frente da Setflow está Carlos Stefan, especialista de sistemas com mais de 12 anos de experiência em tecnologia da informação.</p>
+      <p>A carreira começou no suporte técnico, atendendo usuários e cuidando de computadores e redes. Passou pela coordenação de TI, com a gestão da área, dos projetos e da infraestrutura, e hoje segue como especialista de sistemas em uma empresa de software de integração. São duas visões no mesmo trabalho: a de quem usa o sistema no dia a dia e a de quem precisa que ele traga resultado para o negócio.</p>
+      <ol class="path">
+        <li><span class="n">1</span><b>Técnico de TI</b><span>Suporte a usuários, computadores e redes</span></li>
+        <li><span class="n">2</span><b>Coordenador de TI</b><span>Gestão da área, projetos e infraestrutura</span></li>
+        <li><span class="n">3</span><b>Especialista de Sistemas</b><span>ERP, integrações, automação e IA</span></li>
+      </ol>
+      <h3 class="xp-title">Experiência prática em</h3>
+      <dl class="xp">
+        <div><dt>ERP Oracle NetSuite</dt><dd>Suporte a usuários, perfis e acessos, pesquisas salvas, relatórios e SuiteScript.</dd></div>
+        <div><dt>Automação e integrações</dt><dd>Fluxos em n8n, desenvolvimento em Node.js e integração entre sistemas via API.</dd></div>
+        <div><dt>Atlassian</dt><dd>Jira, Jira Service Management e Confluence: projetos, workflows, help desk e documentação.</dd></div>
+        <div><dt>Google Workspace</dt><dd>Administração de usuários, grupos, Drives compartilhados, e-mail e segurança.</dd></div>
+        <div><dt>IA aplicada</dt><dd>Agentes e fluxos com IA e uso corporativo seguro das ferramentas de IA.</dd></div>
+        <div><dt>Infraestrutura e segurança</dt><dd>FortiGate, pfSense, AWS, Azure, Windows, Windows Server e Linux.</dd></div>
+      </dl>
+      <div class="links">
+        <a class="btn" href="https://www.linkedin.com/in/carlosstefan" target="_blank" rel="noopener">Ver perfil no LinkedIn</a>
+        <a class="btn ghost" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS: espaços reservados para conteúdo real -->
+<section class="block" id="resultados">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Resultados</span>
+      <h2>Depoimentos e cases</h2>
+      <p>Espaço reservado para depoimentos e cases reais, com autorização dos clientes.</p>
+    </div>
+    <div class="ph-grid">
+      <div class="ph"><b>[DEPOIMENTO]</b><p>Texto do cliente, nome, cargo e empresa.</p></div>
+      <div class="ph"><b>[DEPOIMENTO]</b><p>Texto do cliente, nome, cargo e empresa.</p></div>
+      <div class="ph"><b>[CASE]</b><p>Problema do cliente, o que foi feito e o resultado (ex.: horas economizadas por mês).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TECNOLOGIAS -->
+<section class="stackband" id="tecnologias" aria-labelledby="techTitle">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Tecnologias</span>
+    <h2 id="techTitle">Ferramentas que uso no dia a dia</h2>
+    <p class="sr-only" id="techList"></p>
+  </div>
+  <div class="marquee" id="mq1" aria-hidden="true"></div>
+  <div class="marquee rev" id="mq2" aria-hidden="true"></div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Perguntas frequentes</span>
+      <h2>Dúvidas comuns antes de contratar.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Como funciona o atendimento remoto?</summary>
+        <p>Por acesso remoto seguro, videochamada e as ferramentas que sua empresa já usa. Cada acesso é autorizado por você, e você acompanha o que está sendo feito. A maior parte dos serviços não exige ninguém no local.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo leva um projeto?</summary>
+        <p>O prazo é definido na proposta, depois do diagnóstico, porque depende do escopo. Projetos maiores, como a implantação do Jira Service Management ou a migração para o Google Workspace, são divididos em etapas para você ver resultado antes do fim.</p>
+      </details>
+      <details>
+        <summary>Como fica o sigilo dos meus dados?</summary>
+        <p>O acesso aos seus sistemas acontece só com sua autorização e com a permissão mínima necessária. As credenciais ficam em cofre de senhas, e o tratamento de dados segue a LGPD. Um acordo de confidencialidade pode fazer parte do contrato. Os detalhes estão na <a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Quais regiões você atende?</summary>
+        <p>Remotamente, empresas de todo o Brasil. Presencialmente, Mogi Guaçu, Mogi Mirim, Itapira, Estiva Gerbi, Santo Antônio de Posse e Campinas, com agendamento prévio.</p>
+      </details>
+      <details>
+        <summary>Quais são as formas de contratação?</summary>
+        <p>Projeto fechado, com escopo e prazo definidos; suporte mensal, com pacote de horas; ou consultoria avulsa por hora. Os valores dependem do escopo: solicite um orçamento.</p>
+      </details>
+      <details>
+        <summary>Minha empresa não tem equipe de TI. Você atende mesmo assim?</summary>
+        <p>Sim. O suporte mensal foi pensado para pequenas empresas que precisam de alguém responsável pela TI sem contratar um funcionário dedicado.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CONTATO -->
+<section class="contact" id="contato">
+  <div class="wrap" style="padding-block:clamp(64px,9vw,104px) 0">
+    <div class="cgrid">
+      <div>
+        <div class="head" style="margin-bottom:0">
+          <span class="eyebrow"><span class="dots"><i></i><i></i><i></i></span> Contato</span>
+          <h2>Conte o que está tomando tempo da sua equipe.</h2>
+          <p>A primeira conversa é gratuita. Você sai dela sabendo o que dá para automatizar ou corrigir primeiro, contratando ou não.</p>
+        </div>
+        <ul class="contact-list">
+          <li><span class="ic"><svg aria-hidden="true"><use href="#chat"/></svg></span><div><b>WhatsApp</b><a href="https://wa.me/5519978034464" target="_blank" rel="noopener">(19) 97803-4464</a></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>E-mail</b><a href="mailto:carlos.stefan86@yahoo.com.br">carlos.stefan86@yahoo.com.br</a></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 10v7"/></svg></span><div><b>LinkedIn</b><a href="https://www.linkedin.com/in/carlosstefan" target="_blank" rel="noopener">linkedin.com/in/carlosstefan</a></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><b>Atendimento</b><span style="font-weight:700">Remoto, para empresas de todo o Brasil</span></div></li>
+        </ul>
+      </div>
+      <form id="form" novalidate>
+        <label>Nome<input id="f-nome" autocomplete="name" placeholder="Maria Souza"></label>
+        <label>Empresa<input id="f-emp" autocomplete="organization" placeholder="Souza Contabilidade"></label>
+        <label>Serviço de interesse<select id="f-svc">
+          <option>Automação e integrações (n8n)</option><option>Automação com IA</option><option>Implantação e governança de IA</option><option>Google Workspace</option><option>Jira, JSM e Confluence</option><option>Oracle NetSuite</option><option>Suporte de TI remoto</option><option>Windows e Microsoft 365</option><option>Windows Server e Active Directory</option><option>Linux</option><option>Redes e Wi-Fi</option><option>Cloud, firewall e segurança</option><option>Backup e recuperação</option><option>Monitoramento</option><option>Consultoria e diagnóstico</option><option>Atendimento presencial</option><option>Ainda não sei</option>
+        </select></label>
+        <label>Formato<select id="f-fmt"><option>Ainda não sei</option><option>Projeto fechado</option><option>Suporte mensal</option><option>Consultoria avulsa</option></select></label>
+        <label class="full">O que você quer resolver?<textarea id="f-msg" placeholder="Ex.: hoje copiamos os pedidos do formulário para a planilha e depois para o ERP, todo dia, à mão."></textarea></label>
+        <div class="formfoot"><small>Seus dados são usados só para responder ao seu contato, conforme a LGPD e a nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</small><button class="btn" type="submit">Preparar mensagem</button></div>
+        <div class="sent" id="sent" hidden aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+  <div class="garden" aria-hidden="true">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice">
+      <path d="M0 150 Q200 120 420 140 T860 136 T1440 130 V200 H0Z" fill="var(--grass)"/>
+      <path d="M0 172 Q300 156 620 168 T1440 162 V200 H0Z" fill="var(--grass2)"/>
+      <g>
+        <use href="#brom" x="60" y="70" width="110" height="100"/>
+        <use href="#monstera" x="190" y="60" width="110" height="110"/>
+        <use href="#brom" x="1220" y="60" width="120" height="110"/>
+        <use href="#monstera" x="1320" y="70" width="100" height="100"/>
+      </g>
+      <g transform="translate(720 92)">
+        <rect x="-40" y="20" width="80" height="58" rx="6" fill="#2A3456"/>
+        <rect x="-34" y="28" width="68" height="8" rx="2" fill="#3A4675"/><rect x="-34" y="42" width="68" height="8" rx="2" fill="#3A4675"/><rect x="-34" y="56" width="68" height="8" rx="2" fill="#3A4675"/>
+        <circle class="blink" cx="24" cy="32" r="2.4" fill="#4ED17A"/><circle class="blink d2" cx="24" cy="46" r="2.4" fill="#1F8FE0"/><circle class="blink d3" cx="24" cy="60" r="2.4" fill="#E2342D"/>
+        <path d="M-30 20 C-50 -10 -10 -30 0 -4 C10 -30 50 -10 30 20" fill="var(--leaf2)"/>
+      </g>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg aria-hidden="true"><use href="#mark"/></svg><span><b>setflow</b></span></a>
+    <p>Automação · IA · Jira · Google Workspace · NetSuite · Suporte de TI remoto</p>
+    <p><a href="politica-de-privacidade.html" class="pp">Política de Privacidade</a> · © 2026 Setflow</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5519978034464?text=Ol%C3%A1%2C%20Carlos!%20Vim%20pelo%20site." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp: (19) 97803-4464">
+  <span class="bub"><svg aria-hidden="true"><use href="#chat"/></svg></span>WhatsApp
+</a>
+
+<script>
+(function(){
+  const WA='5519978034464', MAIL='carlos.stefan86@yahoo.com.br';
+  const icons={
+    flow:'<rect x="12" y="44" width="30" height="40" rx="6"/><rect x="86" y="16" width="30" height="34" rx="6"/><rect x="86" y="78" width="30" height="34" rx="6"/><path d="M42 64h22V33h22M64 64v31h22"/>',
+    ai:'<path d="M60 14l10 30 30 10-30 10-10 30-10-30-30-10 30-10z"/><path d="M102 82l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/>',
+    gov:'<path d="M64 12l42 16v34c0 26-18 44-42 54-24-10-42-28-42-54V28z"/><path d="M46 64l12 12 24-26"/>',
+    ws:'<path d="M14 30h36l10 12h54v62H14z"/><path d="M40 78h48M40 92h30"/>',
+    jira:'<rect x="14" y="20" width="100" height="88" rx="8"/><path d="M47 20v88M81 20v88"/><rect x="22" y="34" width="18" height="14" rx="3"/><rect x="56" y="34" width="18" height="14" rx="3"/><rect x="56" y="56" width="18" height="14" rx="3"/><rect x="90" y="34" width="18" height="14" rx="3"/>',
+    erp:'<ellipse cx="64" cy="28" rx="40" ry="12"/><path d="M24 28v72c0 7 18 12 40 12s40-5 40-12V28M24 52c0 7 18 12 40 12s40-5 40-12M24 76c0 7 18 12 40 12s40-5 40-12"/>',
+    desk:'<path d="M24 76V60a40 40 0 0 1 80 0v16"/><rect x="16" y="66" width="20" height="32" rx="6"/><rect x="92" y="66" width="20" height="32" rx="6"/><path d="M102 98c0 10-14 16-30 16"/>',
+    sec:'<path d="M36 92a22 22 0 0 1 2-44 30 30 0 0 1 56 6 20 20 0 0 1-2 38z"/><rect x="50" y="68" width="28" height="22" rx="4"/><path d="M56 68v-6a8 8 0 0 1 16 0v6"/>',
+    win:'<path d="M18 26l40-6v40H18z M64 19l46-7v48H64z M18 66h40v40l-40-6z M64 66h46v48l-46-7z"/>',
+    srv:'<rect x="20" y="16" width="88" height="26" rx="4"/><rect x="20" y="51" width="88" height="26" rx="4"/><rect x="20" y="86" width="88" height="26" rx="4"/><path d="M34 29h.01M34 64h.01M34 99h.01"/>',
+    lin:'<rect x="14" y="20" width="100" height="88" rx="10"/><path d="M34 52l18 14-18 14M62 82h30"/>',
+    net:'<circle cx="64" cy="24" r="12"/><circle cx="24" cy="100" r="12"/><circle cx="104" cy="100" r="12"/><path d="M64 36v30M64 66L24 88M64 66l40 22"/>',
+    bkp:'<path d="M24 64a40 40 0 1 0 12-28 M24 20v24h24"/><path d="M64 44v22l14 10"/>',
+    mon:'<rect x="12" y="20" width="104" height="72" rx="8"/><path d="M22 66l20-18 16 12 22-26 26 18M48 112h32M64 92v20"/>',
+    diag:'<circle cx="54" cy="54" r="36"/><path d="M80 80l32 32M36 64l10-10 10 8 14-18"/>'
+  };
+  const S=[
+    ['g','Automação, sistemas e IA'],
+    ['flow','Automação de processos e integrações','Qualquer demanda em n8n e Make: fluxos novos, integrações via API e ajustes nos que já existem, ligando CRM, formulários, planilhas e ERP.'],
+    ['ai','Automação com IA','Fluxos e agentes com IA no n8n para atender clientes e resumir e classificar e-mails e documentos antes que cheguem à equipe.'],
+    ['gov','Implantação e governança de IA','Contas corporativas de ChatGPT, Claude, Gemini e NotebookLM, com acessos controlados, política de uso seguro e equipe treinada.'],
+    ['ws','Google Workspace','Implantação, migração de e-mails, usuários, grupos e Drives compartilhados, com segurança configurada e administração contínua.'],
+    ['jira','Jira, Jira Service Management e Confluence','Projetos, workflows e automações no Jira, portal de help desk no JSM e base de conhecimento no Confluence.'],
+    ['erp','Oracle NetSuite','Suporte aos usuários, perfis e acessos, pesquisas salvas, relatórios e pequenas customizações em SuiteScript.'],
+    ['g','Infraestrutura e suporte'],
+    ['desk','Suporte de TI remoto','Help desk para pequenas empresas: gestão de usuários e acessos, com cada chamado acompanhado até a solução.'],
+    ['win','Windows e Microsoft 365','Estações padronizadas e atualizadas, políticas via Intune e GPO, e Exchange, Teams e OneDrive configurados do jeito certo.'],
+    ['srv','Windows Server e Active Directory','AD, DNS, DHCP e GPOs organizados, servidor de arquivos com permissão por setor e migração de versões sem suporte.'],
+    ['lin','Linux','Servidores Ubuntu, Debian e Red Hat instalados, protegidos e atualizados, com Docker, Nginx e rotinas automatizadas.'],
+    ['net','Redes e Wi-Fi','Configuração e gestão remota de firewall, roteadores, switches e Wi-Fi corporativo, com VLANs e rede de visitantes separada.'],
+    ['sec','Cloud, firewall e segurança','Configuração remota de FortiGate e pfSense, VPN, antivírus corporativo, MFA e ambientes em AWS e Azure.'],
+    ['bkp','Backup e recuperação','Backup automático de servidores, estações e e-mails, cópia fora da empresa e teste periódico de restauração.'],
+    ['mon','Monitoramento','Alertas de disco, serviços, links e certificados antes que virem parada, com relatório do que foi feito.'],
+    ['diag','Consultoria e diagnóstico de TI','Avaliação do ambiente atual e um plano de melhorias em ordem de prioridade, começando pelo que traz mais retorno.']
+  ];
+  const grid=document.getElementById('svcGrid');
+  let n=0;
+  grid.innerHTML=S.map(s=>{
+    if(s[0]==='g')return '<h3 class="svc-group">'+s[1]+'</h3>';
+    n++;
+    return '<article class="blade"><div class="blade-top"><span class="ico"><svg viewBox="0 0 128 128" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">'+icons[s[0]]+'</svg></span><span class="u">U'+String(n).padStart(2,'0')+'<span class="leds" aria-hidden="true"><i></i><i></i><i></i></span></span></div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></article>';
+  }).join('');
+
+  // tecnologias
+  const r1=['n8n','Make','Node.js','APIs REST','Webhooks','Oracle NetSuite','SuiteScript','Jira','Jira Service Management','Confluence','Google Workspace','ChatGPT','Claude','Gemini','NotebookLM'];
+  const r2=['FortiGate','pfSense','AWS','Azure','Windows','Microsoft 365','Intune','Windows Server','Active Directory','Linux','Docker','VPN','Backup','Redes e Wi-Fi','Cabeamento estruturado'];
+  const fill=(id,a)=>{document.getElementById(id).innerHTML=[...a,...a].map(t=>'<span>'+t+'</span>').join('')};
+  fill('mq1',r1);fill('mq2',r2);
+  document.getElementById('techList').textContent=[...r1,...r2].join(', ')+'.';
+
+  // terminal
+  const lines=[
+    ['<span class="dim">$</span> n8n execute --workflow "pedido-do-site-para-erp"',0],
+    ['<span class="k">[webhook]</span> novo pedido recebido do formulário ..... <span class="ok">OK</span>'],
+    ['<span class="k">[ia]</span>      e-mail do cliente classificado: orçamento <span class="ok">OK</span>'],
+    ['<span class="k">[crm]</span>     contato criado/atualizado .............. <span class="ok">OK</span>'],
+    ['<span class="k">[erp]</span>     pedido de venda criado no NetSuite ..... <span class="ok">OK</span>'],
+    ['<span class="k">[sheets]</span>  planilha comercial sincronizada ........ <span class="ok">OK</span>'],
+    ['<span class="k">[jira]</span>    tarefa criada para o time de entrega ... <span class="ok">OK</span>'],
+    ['<span class="k">[chat]</span>    equipe avisada no Google Chat .......... <span class="ok">OK</span>'],
+    ['          <span class="dim">→ concluído sem nenhuma etapa manual</span>'],
+    ['<span class="dim">$</span> ']
+  ];
+  const term=document.getElementById('term');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  term.innerHTML=lines.map(l=>l[0]).join('\n')+'<span class="caret"></span>';
+  if(!reduce&&'IntersectionObserver' in window){
+    let busy=false;
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!busy){busy=true;play()}})},{threshold:.4});
+    io.observe(term);
+    function play(){
+      let i=0;term.innerHTML='';
+      (function next(){
+        if(i>=lines.length){term.innerHTML+='<span class="caret"></span>';setTimeout(()=>{busy=false;io.unobserve(term);io.observe(term)},7000);return}
+        term.innerHTML+=(i?'\n':'')+lines[i][0];i++;setTimeout(next,i===1?700:420);
+      })();
+    }
+  }
+
+  // parallax
+  const plx=[...document.querySelectorAll('.plx')];
+  const hero=document.querySelector('.hero');
+  let mx=0,ticking=false;
+  function frame(){
+    const y=window.scrollY;
+    if(y<hero.offsetHeight+200){
+      plx.forEach(el=>{
+        const sp=parseFloat(el.dataset.speed||0);
+        el.style.transform='translate3d('+(mx*sp*-30).toFixed(1)+'px,'+(y*sp).toFixed(1)+'px,0)';
+      });
+    }
+    ticking=false;
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  if(!reduce){
+    addEventListener('scroll',req,{passive:true});
+    hero.addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;req()});
+    frame();
+  }
+
+  // dia/noite
+  const root=document.documentElement;
+  document.getElementById('themeBtn').addEventListener('click',()=>{
+    const cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    root.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  });
+
+  // formulário: envia para /api/lead (Supabase) e mantém opções complementares de WhatsApp e e-mail
+  document.getElementById('form').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const out=document.getElementById('sent');
+    const submitBtn=e.currentTarget.querySelector('button[type="submit"]');
+    const nome=v('f-nome'), msg=v('f-msg');
+    out.hidden=false;
+    if(!nome||!msg){
+      out.className='sent err';
+      out.innerHTML='<p>Preencha seu nome e conte o que você quer resolver.</p>';
+      document.getElementById(nome?'f-msg':'f-nome').focus();return;
+    }
+    const emp=v('f-emp');
+    const svc=v('f-svc');
+    const fmt=v('f-fmt');
+    const texto='Olá, Carlos! Sou '+nome+(emp?', da '+emp:'')+'.\nServiço de interesse: '+svc+'\nFormato: '+fmt+'\n\n'+msg;
+    const wa='https://wa.me/'+WA+'?text='+encodeURIComponent(texto);
+    const mail='mailto:'+MAIL+'?subject='+encodeURIComponent('Orçamento: '+svc)+'&body='+encodeURIComponent(texto);
+    const actionsHtml='<div class="row"><a class="btn wa" target="_blank" rel="noopener" href="'+wa+'">Enviar pelo WhatsApp</a><a class="btn ghost" href="'+mail+'">Enviar por e-mail</a></div>';
+
+    if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Enviando...';}
+    try{
+      const res=await fetch('/api/lead',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({nome,empresa:emp,servico:svc,formato:fmt,mensagem:msg})
+      });
+      if(res.ok){
+        out.className='sent';
+        out.innerHTML='<p>Contato registrado com sucesso! Se quiser falar agora, use também uma das opções abaixo:</p>'+actionsHtml;
+      }else{
+        out.className='sent';
+        out.innerHTML='<p>Não foi possível registrar automaticamente agora, mas sua mensagem está pronta para envio direto:</p>'+actionsHtml;
+      }
+    }catch(_err){
+      out.className='sent';
+      out.innerHTML='<p>Sem conexão com o registro automático no momento. Envie diretamente por um dos canais abaixo:</p>'+actionsHtml;
+    }finally{
+      if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Preparar mensagem';}
+    }
+  });
+})();
+</script>
+</body>
+</html>
